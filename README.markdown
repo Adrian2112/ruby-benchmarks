@@ -45,9 +45,35 @@ end
 ```
 
 Result:
-```ruby
+```sh
               user     system      total        real
 #{} :     0.010000   0.000000   0.010000 (  0.003372)
 %s % :    0.050000   0.000000   0.050000 (  0.057712)
  + :      0.010000   0.000000   0.010000 (  0.002924)
+```
+
+
+## Array.each | for in
+```ruby
+require 'benchmark'
+
+array = (0..100).to_a
+
+Benchmark.bm(7) do |x|
+  x.report("each")   { 10000.times { array.each { |element| element  } } }
+  x.report("for in") {
+    10000.times {
+      for element in array
+        element
+      end
+    }
+  }
+end
+```
+
+Results:
+```sh
+              user     system      total        real
+each      0.110000   0.000000   0.110000 (  0.116206)
+for in    0.130000   0.000000   0.130000 (  0.142046)
 ```
