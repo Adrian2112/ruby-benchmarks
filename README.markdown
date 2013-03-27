@@ -3,7 +3,14 @@ ruby-benchmarks
 
 Some Ruby benchmarks in my system
 
-## Array#includes? (n..m) | number >= n and <= m
+## System information
+```sh
+$ ruby -v
+ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-darwin12.2.0]
+```
+
+
+## Range#includes? (n..m) | number >= n and <= m
 
 ```ruby
 require 'benchmark'
